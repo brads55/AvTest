@@ -1,3 +1,5 @@
+using ReactiveUI;
+
 namespace AvTest.ViewModels;
 
-public class ViewModelBase { }
+public class ViewModelBase : ReactiveObject { }

@@ -3,14 +3,21 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:AvTest.ViewModels"
+             xmlns:local="using:AvTest"
              xmlns:ui="clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:DataType="vm:SubViewModel"
              x:Class="AvTest.Views.SubView">
 
-    <ui:TabView>
-        <ui:TabViewItem Header="Header">
-            <Grid Background="DarkRed" MinHeight="800" />
-        </ui:TabViewItem>
+    <ui:TabView VerticalAlignment="Stretch" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" TabItems="{Binding Items}">
+        <ui:TabView.TabItemTemplate>
+            <DataTemplate x:DataType="local:TabItem">
+                <ui:TabViewItem Header="{Binding Header}">
+                    <Grid Background="DarkRed">
+                        <TextBlock Text="{Binding Value}" />
+                    </Grid>
+                </ui:TabViewItem>
+            </DataTemplate>
+        </ui:TabView.TabItemTemplate>
     </ui:TabView>
 </UserControl>

@@ -9,7 +9,7 @@
         Icon="/Assets/avalonia-logo.ico"
         Title="AvTest">
 
-    <ui:TabView x:Name="MainTab">
+    <ui:TabView x:Name="MainTab" VerticalAlignment="Stretch">
         <ui:TabViewItem Header="Header">
             <vm:SubViewModel />
         </ui:TabViewItem>
