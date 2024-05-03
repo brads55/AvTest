@@ -6,7 +6,9 @@ namespace AvTest.ViewModels;
 
 public class SubViewModel : ViewModelBase
 {
-    static int _id = 0;
+    static int _nextId = 0;
+
+    private int _id = _nextId++;
 
     private TabItem _selectedItem;
     public TabItem SelectedItem
@@ -14,6 +16,7 @@ public class SubViewModel : ViewModelBase
         get => _selectedItem;
         set
         {
+            System.Console.WriteLine($"SELECT: {_id} -> {value?.Value}");
             if (value != null)
             {
                 this.RaiseAndSetIfChanged(ref _selectedItem, value);
@@ -25,7 +28,9 @@ public class SubViewModel : ViewModelBase
 
     public SubViewModel()
     {
-        if (_id++ == 0)
+        System.Console.WriteLine($"CONSTRUCT: {_id}");
+
+        if (_id == 0)
         {
             Items.AddRange(new[] { new TabItem { Value = 0 }, new TabItem { Value = 1 }, new TabItem { Value = 2 } });
         }
