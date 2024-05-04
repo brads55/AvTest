@@ -9,7 +9,7 @@
              x:DataType="vm:SubViewModel"
              x:Class="AvTest.Views.SubView">
 
-    <ui:TabView VerticalAlignment="Stretch" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" TabItems="{Binding Items}">
+    <ui:TabView VerticalAlignment="Stretch" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}" TabItems="{Binding Items}">
         <ui:TabView.TabItemTemplate>
             <DataTemplate x:DataType="local:TabItem">
                 <ui:TabViewItem Header="{Binding Header}">

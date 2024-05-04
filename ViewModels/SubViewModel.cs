@@ -6,20 +6,20 @@ namespace AvTest.ViewModels;
 
 public class SubViewModel : ViewModelBase
 {
-    static int _nextId = 0;
+    private static int _nextId = 0;
 
-    private int _id = _nextId++;
+    private readonly int _id = _nextId++;
 
-    private TabItem _selectedItem;
-    public TabItem SelectedItem
+    private int _selectedIndex;
+    public int SelectedIndex
     {
-        get => _selectedItem;
+        get => _selectedIndex;
         set
         {
-            System.Console.WriteLine($"SELECT: {_id} -> {value?.Value}");
-            if (value != null)
+            System.Console.WriteLine($"SELECT: {_id} -> {value}");
+            if (value != -1)
             {
-                this.RaiseAndSetIfChanged(ref _selectedItem, value);
+                this.RaiseAndSetIfChanged(ref _selectedIndex, value);
             }
         }
     }
@@ -39,6 +39,6 @@ public class SubViewModel : ViewModelBase
             Items.AddRange(new[] { new TabItem { Value = 10 } });
         }
 
-        _selectedItem = Items[0];
+        _selectedIndex = 0;
     }
 }
